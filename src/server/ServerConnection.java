@@ -95,7 +95,7 @@ public class ServerConnection extends Thread
                 {
                     sendStringToAllClients("Currently online:----------------------");
                     for (int i = 0; i < server.connections.size(); i++) {
-                        sendStringToAllClients((i + 1) + ". " + server.connections.get(i).getPlayerName()+" money: $" + getTotal() );
+                        sendStringToAllClients((i + 1) + ". " + server.connections.get(i).getPlayerName()+" money: $" + server.connections.get(i).getTotal() );
                     }
                     sendStringToAllClients("---------------------------------------");
                 } else if (receivedMessage.equals("/!commands")) {
