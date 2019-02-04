@@ -11,7 +11,7 @@ public class ClientConnection extends Thread {
     private Socket socket;
     private String playerName;
     private String total= "500";
-    private Client client;
+    public Client client;
 
     private DataInputStream din;
     private DataOutputStream dout;
@@ -98,5 +98,16 @@ public class ClientConnection extends Thread {
         {
             e.printStackTrace();
         }
+    }
+
+    public void updatePlayerWallet(Double money)
+    {
+        try {
+            dout.writeUTF("/!wUpdate");
+            dout.writeDouble(money);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
