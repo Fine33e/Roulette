@@ -112,10 +112,6 @@ public class RouletteGame
                 }
             }
 
-
-
-
-
             System.out.println("You have $" + total + " remaining." );
             System.out.println("You have won " + win + " games.");
             System.out.println("You have lost " + lose + " games.");
@@ -124,6 +120,7 @@ public class RouletteGame
             response = keyboard.next().charAt(0);
 
             total2 =String.valueOf(total);
+            player.clientConnection.updatePlayerWallet(total);
 
 
         }

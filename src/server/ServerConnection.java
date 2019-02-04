@@ -95,7 +95,7 @@ public class ServerConnection extends Thread
                 {
                     sendStringToAllClients("Currently online:----------------------");
                     for (int i = 0; i < server.connections.size(); i++) {
-                        sendStringToAllClients((i + 1) + ". " + server.connections.get(i).getPlayerName()+" money: $"+getTotal() );
+                        sendStringToAllClients((i + 1) + ". " + server.connections.get(i).getPlayerName()+" money: $" + getTotal() );
                     }
                     sendStringToAllClients("---------------------------------------");
                 } else if (receivedMessage.equals("/!commands")) {
@@ -106,8 +106,10 @@ public class ServerConnection extends Thread
                             "/!online - to show who is online\n" +
                             "/!commands - to show all commands\n" +
                             "-----------------------------------------------");
-                }else if(receivedMessage.equals("/!money")){
-
+                }else if(receivedMessage.equals("/!wUpdate"))
+                {
+                    total = String.valueOf(din.readDouble());
+                    server.notifyServer(playerName +"'s wallet updated!");
                 }
 
 
